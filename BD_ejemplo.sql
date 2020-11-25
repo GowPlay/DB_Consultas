@@ -20,7 +20,6 @@ CREATE TABLE estudiante(
     id INT(12),
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(100) NOT NULL,
-    telefono INT(12) UNIQUE,
     carrera_codigo INT
 );
 ALTER TABLE estudiante
@@ -82,3 +81,53 @@ ALTER TABLE matricula
     ADD CONSTRAINT fk_estudiante_id FOREIGN KEY(estudiante_id) REFERENCES estudiante(id);
 ALTER TABLE matricula
     ADD CONSTRAINT fk_seccion_id FOREIGN KEY(seccion_id) REFERENCES seccion(id);
+
+
+-- datos 
+
+INSERT INTO carrera (nombre) 
+    VALUES(' ING sistemas'),
+          (' Medicina '),
+          (' Agroecologia'),
+          (' Derecho Penal');
+
+
+INSERT INTO estudiante (nombre, apellidos, carrera_codigo) 
+    VALUES('jefferson andres', 'pedraza salazar', 1),
+          ('jennifer andrea', 'pedraza robles', 1),
+          ('juan camilo', 'peres salazar', 1),
+          ('cristian', 'claros salazar', 2),
+          ('cristina ', 'claros restrepo', 2),
+          ('camila andrea ', 'restrepo', 3),
+          ('maria camila ', 'ruiz restrepo', 3),
+          ('juan carlos ', 'claros restrepo', 4);
+
+INSERT INTO clase(nombre) 
+    VALUES('filosofia'),
+          ('programacion web'),
+          ('derecho penal'),
+          ('administracion'),
+          ('invertegrados');
+
+INSERT INTO maestro(nombre, apellido) 
+    VALUES('Juan Andres', 'Ramirez Daza' ),
+          ('Flabio Andres', 'Quintana'),
+          ('Cristian Camil', 'Rodrigez Paz'),
+          ('Oscar', 'Ruiz Quintana'),
+          ('Daniel', 'Restrepo ');
+
+INSERT INTO seccion(hora, cupos, aula,codigo_clase, maestro_id ) 
+    VALUES('12-04-2019', 25,'A122', 1, 1 ),
+          ('12-05-2020', 25,'A102', 2, 2),
+          ('12-05-2019', 25,'A022', 2, 2),
+          ('12-06-2019', 25,'B022', 3, 3),
+          ('12-06-2020', 25,'B202', 4, 1),
+          ('12-06-2019', 25,'C122', 5, 5);
+
+INSERT INTO matricula(estudiante_id, seccion_id ) 
+    VALUES(1,1),
+          (1,1),
+          (2,1),
+          (3,2),
+          (3,3),
+          (4,2);
