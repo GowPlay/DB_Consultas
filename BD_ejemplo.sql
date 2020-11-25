@@ -126,7 +126,7 @@ INSERT INTO seccion(hora, cupos, aula,codigo_clase, maestro_id )
 
 INSERT INTO matricula(estudiante_id, seccion_id ) 
     VALUES(1,1),
-          (1,1),
+          (1,2),
           (2,1),
           (3,2),
           (3,3),
